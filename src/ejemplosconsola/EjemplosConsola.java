@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class EjemplosConsola {
     
     //declaro un array de ints de instancia
-    int[] listaNumeros	= {200, 31, 27, 2, 5, 99};
+    int[] listaNumeros	= {200, 87, 27, 2, 5, 99};
     
     
     /* 
@@ -25,9 +25,18 @@ public class EjemplosConsola {
         //Declaramos un array de dos elementos para guardar el máximo y el segundo máximo
         int [] listaMaximos = {lista[0], lista[0]};
         for (int i=0; i<lista.length; i++){
-            if (listaMaximos[0] <= lista[i]){
-                listaMaximos[1] = listaMaximos[0];
-                listaMaximos[0] = lista[i];
+            if (lista[i] >= listaMaximos[0]){
+                //si llega aquí, es que el numero que estoy
+                //comparando es mayor o igual que el que tengo primero en la
+                //lista de maximos  
+                if(i!=0){
+                     listaMaximos[1] = listaMaximos[0]; //desplazo a la derecha que habia como máximo
+                }
+                listaMaximos[0] = lista[i]; //pongo en l primera posición al nuevo máximo
+            } 
+            else if (lista[i] >= listaMaximos[1]){ //compruebo si el número que estoy leyendo es mayor que el SEGUNDO de la lista de máximos
+                
+                listaMaximos[1] = lista[i]; //pongo en l SEGUNDA posición al nuevo máximo
             }
         }
         
